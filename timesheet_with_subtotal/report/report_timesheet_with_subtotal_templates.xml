@@ -20,37 +20,39 @@
                             </tr>
                                 <t t-set='tasks' t-value="docs.mapped('task_id')"/>
                                 <t t-foreach='tasks' t-as='task'>
+                                    <t t-esc="task"/>
                                     <t t-set='task_line' t-value='docs.filtered(lambda h: h.task_id == task)'/>
-                                    <tr>
-                                        <td>
-                                            <span>Task:
-                                            <t t-esc="task.name"></t>
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <t t-set='task_total_time' t-value="sum(task_line.mapped('unit_amount'))"/>
-                                            <t t-esc='task_total_time'/>
-                                        </td>
-                                    </tr>
-                                    <t t-foreach='task_line' t-as='line'>
-                                        <tr border='1'>
+                                    <t t-if="task.project_id == project">
+                                        <tr>
                                             <td>
-                                                <t t-esc="line.date"/>
+                                                <span>Task:
+                                                <t t-esc="task.name"></t>
+                                                <t t-esc="task_line"/>
+                                                </span>
                                             </td>
                                             <td>
-                                                <t t-esc="line.name"/>
+                                                <t t-set='task_total_time' t-value="sum(task_line.mapped('unit_amount'))"/>
+                                                <t t-esc='task_total_time'/>
                                             </td>
-                                            <td>
-                                                <t t-esc="line.x_studio_lieu"/>
-                                            </td>
-                                             <td>
-                                                <t t-esc='line.unit_amount'/>
-                                             </td>
                                         </tr>
-                                    </t>                                
+                                    </t>    
+                                        <t t-foreach='task_line' t-as='line'>
+                                            <tr border='1'>
+                                                <td>
+                                                    <t t-esc="line.date"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="line.name"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="line.x_studio_lieu"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc='line.unit_amount'/>
+                                                </td>
+                                            </tr>
+                                        </t>                         
                                 </t>
-
-                        
                         </t>
                     </table>
                 </div>
