@@ -1,0 +1,11 @@
+<odoo>
+    <record id="timesheet_with_subtotal_report" model="ir.actions.report">
+        <field name="name">Timesheet With Subtotal</field>
+        <field name="model">account.analytic.line</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">timesheet_with_subtotal.report_timesheet_with_subtotal</field>
+        <field name="report_file">timesheet_with_subtotal.report_timesheet_with_subtotal</field>
+        <field name="binding_model_id" ref="hr_timesheet.model_account_analytic_line"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>
