@@ -20,14 +20,12 @@
                             </tr>
                                 <t t-set='tasks' t-value="docs.mapped('task_id')"/>
                                 <t t-foreach='tasks' t-as='task'>
-                                    <t t-esc="task"/>
                                     <t t-set='task_line' t-value='docs.filtered(lambda h: h.task_id == task)'/>
                                     <t t-if="task.project_id == project">
                                         <tr>
                                             <td>
                                                 <span>Task:
                                                 <t t-esc="task.name"></t>
-                                                <t t-esc="task_line"/>
                                                 </span>
                                             </td>
                                             <td>
