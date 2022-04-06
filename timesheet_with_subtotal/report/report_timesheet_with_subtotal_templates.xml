@@ -32,8 +32,7 @@
                                                 <t t-set='task_total_time' t-value="sum(task_line.mapped('unit_amount'))"/>
                                                 <t t-esc='task_total_time'/>
                                             </td>
-                                        </tr>
-                                    </t>    
+                                        </tr>   
                                         <t t-foreach='task_line' t-as='line'>
                                             <tr border='1'>
                                                 <td>
@@ -49,7 +48,8 @@
                                                     <t t-esc='line.unit_amount'/>
                                                 </td>
                                             </tr>
-                                        </t>                         
+                                        </t> 
+                                    </t>                         
                                 </t>
                         </t>
                     </table>
